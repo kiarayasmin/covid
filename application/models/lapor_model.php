@@ -8,9 +8,9 @@ class lapor_model extends CI_Model {
 						->result();
 	}
 
-	public function get_data_lapor_by_id($id)
+	public function get_data_lapor_by_id($id_lapor)
 	{
-		return $this->db->where('id_lapor', $id)
+		return $this->db->where('id_lapor', $id_lapor)
 						->get('lapor')
 						->row();
 	}
@@ -56,9 +56,9 @@ class lapor_model extends CI_Model {
 		}
 	}
 
-	public function hapus()
+	public function hapus($id_lapor)
 	{
-		$this->db->where('id_lapor', $this->input->post('hapus_id_lapor'))
+		$this->db->where('id_lapor', $id_lapor)
 				 ->delete('lapor');
 
 		if($this->db->affected_rows() > 0){
@@ -73,3 +73,15 @@ class lapor_model extends CI_Model {
 
 /* End of file lapor_model.php */
 /* Location: ./application/models/lapor_model.php */
+// public function detail_barang($id_barang=''){
+//     return $this->db->where('id_barang', $id_barang)->get('barang')->row();
+// }
+// public function update_barang(){
+//     $dt_up_barang=array(
+//         'id_barang'=>$this->input->post('id_barang'),
+//         'nama_barang'=>$this->input->post('nama_barang'),
+//         'kategori_barang'=>$this->input->post('kategori_barang')
+//         #'nama di database'=>$thus->input->post('nama di inputan');
+//     );
+//     return $this->db->where('id_barang', $this->input->post('id_barang'))->update('barang', $dt_up_barang);
+// }
