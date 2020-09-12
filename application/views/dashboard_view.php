@@ -1,34 +1,36 @@
-
 <div class="container">
-  <h2>Data Covid-19 di Indonesia</h2>
+		<h2>Data Covid-19 di Indonesia</h2>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Kode Provinsi</th>
-        <th>Provinsi</th>
-        <th>Kasus Positif</th>
-        <th>Kasus Sembuh</th>
-        <th>Kasus Meninggal</th>
-      </tr>
-    </thead>
-    <!-- <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody> -->
-  </table>
-</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="1">No</th>
+					<th>Kode Provinsi</th>
+					<th>Provinsi</th>
+					<th>Kasus Positif</th>
+					<th>Kasus Sembuh</th>
+					<th>Kasus Meninggal</th>
+				</tr>
+			</thead>
+			<tbody id="cari">
 
+			</tbody>
+		</table>
+	</div>
+	<script>
+		$.getJSON(
+			"https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+			function (data) {
+				var json = data.features;
+				console.log(json[0].attributes.Kode_Provi);
+				console.log(json.length);
+				var no = 1;
+				var datanya = "";
+				for (var i = 0; i < json.length; i++) {
+					$("#cari").append("<tr><td>" + no + "</td><td>" + json[i].attributes.Kode_Provi + "</td><td>" + json[
+						i].attributes.Provinsi + "</td><td>" + json[i].attributes.Kasus_Posi + "</td><td>" + json[
+						i].attributes.Kasus_Semb + "</td><td>" + json[i].attributes.Kasus_Meni);
+					no++;
+				}
+			});
+	</script>

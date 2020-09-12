@@ -15,8 +15,7 @@ class Lapor extends CI_Controller {
 			$data['main_view'] = 'lapor_view';
 			$data['lapor'] = $this->lapor_model->get_lapor();
 
-			//get_kategori untuk dropdown tambah/edit lapor
-			// $data['kategori'] = $this->lapor_model->get_kategori();
+
 			$this->load->view('template', $data);
 
     }
