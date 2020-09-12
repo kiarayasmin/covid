@@ -38,6 +38,7 @@ class lapor_model extends CI_Model {
 	public function ubah()
 	{
 		$data = array(
+				// 'id_lapor' 	            => $this->input->post('ubah_id_lapor'),
 				'nama_pelapor' 	        => $this->input->post('ubah_nama_pelapor'),
 				'notelp_pelapor'		=> $this->input->post('ubah_notelp_pelapor'),
 				'nama_pasien'			=> $this->input->post('ubah_nama_pasien'),

@@ -24,7 +24,12 @@ class Lapor extends CI_Controller {
             $this->load->view('template', $data);
     }
 
+    public function deteksi(){
+        $data['main_view'] = 'deteksi_view';
+        $data['lapor'] = $this->lapor_model->get_lapor();
+        $this->load->view('template', $data);
 
+    }
                 
 	public function tambah()
 	{
@@ -52,7 +57,7 @@ class Lapor extends CI_Controller {
 
 	public function ubah()
 	{
-        $this->form_validation->set_rules('ubah_nama_pelapor', 'ubah_nama_pelapor', 'trim|required');
+        $this->form_validation->set_rules('ubah_nama_pelapor', 'Nama Pelapor', 'trim|required');
         $this->form_validation->set_rules('ubah_notelp_pelapor', 'ubah_notelp_pelapor', 'trim|numeric');
         $this->form_validation->set_rules('ubah_nama_pasien', 'ubah_nama_pasien', 'trim|required|required');
         $this->form_validation->set_rules('ubah_umur_pasien', 'ubah_umur_pasien', 'trim|required|numeric');
@@ -85,7 +90,7 @@ class Lapor extends CI_Controller {
 			}
 	}
 
-	public function get_data_lapor_by_id($id_lapor='')
+	public function get_data_lapor_by_id($id_lapor)
 	{
 
 			$data = $this->lapor_model->get_data_lapor_by_id($id_lapor);

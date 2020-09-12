@@ -1,6 +1,6 @@
-<div class="container">
-		<h2>Data Covid-19 di Indonesia</h2>
-
+<div class="container"><br>
+		<h2 class="text-center">Data Covid-19 di Indonesia</h2>
+<br>
 		<table class="table table-hover">
 			<thead>
 				<tr>
