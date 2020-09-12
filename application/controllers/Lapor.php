@@ -19,7 +19,15 @@ class Lapor extends CI_Controller {
 			// $data['kategori'] = $this->lapor_model->get_kategori();
 			$this->load->view('template', $data);
 
-	}
+    }
+    
+    public function data() {
+            $data['main_view'] = 'datalapor_view';
+            $data['lapor'] = $this->lapor_model->get_lapor();
+            $this->load->view('template', $data);
+    }
+
+
                 
 	public function tambah()
 	{
